@@ -4,6 +4,7 @@ class Aflxx < Formula
   url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v4.31c.tar.gz"
   sha256 "8c6e9bef19b3d43020972701553734d1cb435c39a28b253f0dd6668e6ecb86bb"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class Aflxx < Formula
   end
 
   depends_on "coreutils" => :build
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "python@3.13"
 
   uses_from_macos "zlib"
@@ -41,7 +42,7 @@ class Aflxx < Formula
       end
     end
 
-    llvm = Formula["llvm"]
+    llvm = Formula["llvm@19"]
     make_args = %W[
       PREFIX=#{prefix}
       CC=clang
